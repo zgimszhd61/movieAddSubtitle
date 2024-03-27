@@ -1,0 +1,128 @@
+the training of the model and making it really large.
+So I think scale will be the primary determining factor.
+It's like the first principle component of things, for sure.
+But there are many of the other things that you need to get right.
+So it's almost like the scale sets some kind of a speed limit almost.
+But you do need some of the other things,
+but it's like if you don't have the scale,
+then you fundamentally just can't train some of these massive models
+if you are going to be training models.
+If you're just going to be doing fine tuning and so on,
+then I think maybe less scale is necessary.
+But we haven't really seen that just yet to fully play out.
+And can you share more about some of the ingredients
+that you think also matter,
+maybe lower in priority behind scale?
+Yeah, so the first thing I think is like
+you can't just train these models.
+If you're just given the money and the scale,
+it's actually still really hard to build these models.
+And part of it is that the infrastructure is still so new
+and it's still being developed and not quite there.
+But training these models at scale is extremely difficult
+and is a very complicated distributed optimization problem.
+And there's actually like the talent for this
+is fairly scarce right now.
+And it just basically turns into this insane thing
+running on tens of thousands of GPUs.
+All of them are like failing at random
+at different points in time.
+And so like instrumenting that and getting that to work
+is actually an extremely difficult challenge.
+GPUs were not like intended for like 10,000 GPU workloads
+until very recently.
+And so I think a lot of the infrastructure is sort of like
+creaking under that pressure.
+And we need to like work through that.
+But right now, if you're just giving someone a ton of money
+or a ton of scale or GPUs, it's not obvious to me
+that they can just produce one of these models,
+which is why it's not just about scale.
+You actually need a ton of expertise,
+both on the infrastructure side, the algorithms side,
+and then the data side and being careful with that.
+So I think those are the major components.
+The ecosystem is moving so quickly.
+Even some of the challenges we thought existed a year ago
+are being solved more and more today.
+Hallucinations, context windows, multimodal capabilities,
+inference getting better, faster, cheaper.
+What are the LLM research challenges today
+that keep you up at night?
+What do you think are immediate enough problems
+but also solvable problems that we can continue to go after?
+So I would say on the algorithm side,
+one thing I'm thinking about quite a bit is
+this like distinct split between diffusion models
+and autoregressive models.
+They're both ways of presenting
+probability distributions.
+And it just turns out that different modalities
+are apparently a good fit for one of the two.
+I think that there's probably some space to unify them
+or to like connect them in some way
+and also get some best of both worlds
+or sort of figure out
+how we can get a hybrid architecture and so on.
+So it's just odd to me that we have sort of like
+two separate points in the space of models
+and they're both extremely good.
+And it just feels wrong to me
+that there's nothing in between.
+So I think we'll see that sort of carved out
+and I think there are interesting problems there.
+And then the other thing that maybe I would point to is
+there's still like a massive gap
+in just the energetic efficiency of running all this stuff.
+So my brain is 20 Watts roughly.
+Jensen was just talking at GTC about
+the massive super computers
+that they're gonna be building now.
+These are, the numbers are in megawatts, right?
+And so maybe you don't need all that to run like a brain.
+I don't know how much you need exactly,
+but I think it's safe to say we're probably off
+by a factor of 1,000 to like a million somewhere there
+in terms of the efficiency of running these models.
+And I think part of it is just because the computers
+we've designed of course are just like not a good fit
+for this workload.
+And I think Nvidia GPUs are like a good step
+in that direction.
+In terms of like the, you need extremely high parallelism.
+We don't actually care about sequential computation
+that is sort of like data dependent in some way.
+We just have these, we just need to like blast
+the same algorithm across many different sort of
+array elements or something you can think about it that way.
+So I would say number one is just adapting
+the computer architecture to the new data workflows.
+Number two is like pushing on a few things
+that we're currently seeing improvements on.
+So number one maybe is precision.
+We're seeing precision come down from what originally was
+was like 64 bit for double.
+We're now down to, I don't know what it is, 456
+or even 1.58 depending on which papers you read.
+And so I think precision is one big lever
+of getting a handle on this.
+And then second one of course is sparsity.
+So that's also like another big delta I would say,
+like your brain is not always fully activated.
+And so sparsity I think is another big lever.
+But then the last lever I also feel like
+just the one moment architecture of like computers
+and how they build where you're shuttling data in and out
+and doing a ton of data movement between memory
+and the cores that are doing all the compute.
+This is all broken as well kind of
+and it's not how your brain works
+and that's why it's so efficient.
+And so I think it should be a very exciting time
+in computer architecture.
+I'm not a computer architect,
+but I think there's, it seems like we're off
+by a factor of million, thousand to a million
+something like that.
+And there should be really exciting sort of innovations there
+that bring that down.
