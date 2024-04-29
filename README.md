@@ -8,7 +8,8 @@ yt-dlp https://youtube.com/watch?v=ahnGLM-RC1Y
 
 2. 使用whisper进行字幕抽取，譬如：
 
-whisper A\ Survey\ of\ Techniques\ for\ Maximizing\ LLM\ Performance\ \[ahnGLM-RC1Y\].webm --initial_prompt "以下是普通话的句子。" --language Chinese --model small
+[推荐] whisper A\ Survey\ of\ Techniques\ for\ Maximizing\ LLM\ Performance\ [ahnGLM-RC1Y].webm --task translate --language Chinese --model small
+[或者] whisper A\ Survey\ of\ Techniques\ for\ Maximizing\ LLM\ Performance\ \[ahnGLM-RC1Y\].webm --initial_prompt "以下是普通话的句子。" --language Chinese --model small
 
 3. 使用ChatGPT将生成的srt文件进行翻译.
 
