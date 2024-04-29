@@ -4,14 +4,14 @@
 
 1.  使用yt-dlp下载youtube上的视频，譬如：
 ```
-yt-dlp -o "new_video_name.%(ext)s" https://www.youtube.com/watch?v=MnrJzXM7a6o
+yt-dlp -o "ASurvey.%(ext)s" https://www.youtube.com/watch?v=MnrJzXM7a6o
 
 ```
 
 2. 使用whisper进行字幕抽取，譬如：
 
- - [推荐] whisper new_video_name.webm --task translate --language Chinese --model small
- - [或者] whisper new_video_name.webm --initial_prompt "以下是普通话的句子。" --language Chinese --model small
+ - [推荐] whisper ASurvey.webm --task translate --language Chinese --model small
+ - [或者] whisper ASurvey.webm --initial_prompt "以下是普通话的句子。" --language Chinese --model small
 
 3. 使用ChatGPT将生成的srt文件进行翻译.
 
