@@ -1,4 +1,4 @@
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
+rom moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 import pysrt
 
 def sub_to_seconds(sub):
@@ -7,7 +7,7 @@ def sub_to_seconds(sub):
     end = sub.end.ordinal / 1000
     return start, end
 
-def adjust_font_size(video_width, text, max_width_ratio=0.8, font='STSong', initial_fontsize=24, min_fontsize=16):
+def adjust_font_size(video_width, text, max_width_ratio=0.8, font='STHeiti', initial_fontsize=24, min_fontsize=16):
     """根据视频宽度动态调整字体大小"""
     fontsize = initial_fontsize
     txt_clip = TextClip(txt=text, font=font, fontsize=fontsize, color='white')
@@ -16,7 +16,7 @@ def adjust_font_size(video_width, text, max_width_ratio=0.8, font='STSong', init
         txt_clip = TextClip(txt=text, font=font, fontsize=fontsize, color='white')
     return fontsize
 
-def add_subtitles(video_path, subtitles_path, output_path, font='STSong', font_color='yellow', stroke_color='black', stroke_width=0, bg_color='black'):
+def add_subtitles(video_path, subtitles_path, output_path, font='STHeiti', font_color='yellow', stroke_color='black', stroke_width=0, bg_color='black'):
     with VideoFileClip(video_path).subclip(0, 98) as video:
         video_width = video.size[0]  # 获取视频宽度
         subtitles = pysrt.open(subtitles_path, encoding='utf-8')
