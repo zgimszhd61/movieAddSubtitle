@@ -1,3 +1,4 @@
+# English -> English subtitle
 import os
 print("your Youtube Address:")
 youtbAddr = input()
