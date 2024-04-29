@@ -3,8 +3,11 @@
 分享英文字幕翻译并加载回视频的全流程，总结一下具体操作流程：
 
 1.  使用yt-dlp下载youtube上的视频，譬如：
-
+```
+yt-dlp -o "new_video_name.%(ext)s" https://www.youtube.com/watch?v=MnrJzXM7a6o
 yt-dlp https://youtube.com/watch?v=ahnGLM-RC1Y
+
+```
 
 2. 使用whisper进行字幕抽取，譬如：
 
