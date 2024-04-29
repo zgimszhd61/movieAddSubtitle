@@ -7,9 +7,8 @@ def sub_to_seconds(sub):
     end = sub.end.ordinal / 1000
     return start, end
 
-def add_subtitles(video_path, subtitles_path, output_path, font='STSong', fontsize=24, color='white'):
+def add_subtitles(video_path, subtitles_path, output_path, font='STSong', fontsize=24, color='yellow', stroke_color='black', stroke_width=1):
     with VideoFileClip(video_path).subclip(0, 100) as video:
-        # 确保字幕文件以 UTF-8 编码打开
         subtitles = pysrt.open(subtitles_path, encoding='utf-8')
         clips = [video]  # 包含原始视频的列表
 
@@ -17,8 +16,8 @@ def add_subtitles(video_path, subtitles_path, output_path, font='STSong', fontsi
             for sub in subtitles:
                 start, end = sub_to_seconds(sub)
                 if start < 100:
-                    end = min(end, 100)  # 调整字幕时间，确保它们在视频的前10秒内
-                    txt_clip = TextClip(txt=sub.text, font=font, fontsize=fontsize, color=color)
+                    end = min(end, 100)  # 调整字幕时间，确保它们在视频的前100秒内
+                    txt_clip = TextClip(txt=sub.text, font=font, fontsize=fontsize, color=color, stroke_color=stroke_color, stroke_width=stroke_width)
                     txt_clip = txt_clip.set_duration(end - start).set_position(('center', 'bottom')).set_start(start)
                     clips.append(txt_clip)  # 将字幕剪辑添加到列表中
 
