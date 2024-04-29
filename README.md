@@ -5,7 +5,6 @@
 1.  使用yt-dlp下载youtube上的视频，譬如：
 ```
 yt-dlp -o "ASurvey.%(ext)s" https://www.youtube.com/watch?v=MnrJzXM7a6o
-
 ```
 
 2. 使用whisper进行字幕抽取，譬如：
