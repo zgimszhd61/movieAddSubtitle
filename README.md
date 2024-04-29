@@ -9,8 +9,8 @@ yt-dlp -o "ASurvey.%(ext)s" https://www.youtube.com/watch?v=MnrJzXM7a6o
 
 2. 使用whisper进行字幕抽取，譬如：
 
- - [推荐] whisper ASurvey.webm --task translate --language Chinese --model small
- - [或者] whisper ASurvey.webm --initial_prompt "以下是普通话的句子。" --language Chinese --model small
+ - [推荐] whisper ASurvey.webm --task translate --language Chinese --model small --fp16 False
+ - [或者] whisper ASurvey.webm --initial_prompt "以下是普通话的句子。" --language Chinese --model small  --fp16 False
 
 3. 使用ChatGPT将生成的srt文件进行翻译.
 
