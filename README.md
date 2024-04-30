@@ -9,17 +9,15 @@ yt-dlp -f 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]' -o "ASurvey.%
 
 2. 使用whisper进行字幕抽取，譬如：
 
- - [推荐] whisper ASurvey.webm --task translate --language Chinese --model small --fp16 False
- - [或者] whisper ASurvey.webm --initial_prompt "以下是普通话的句子。" --language Chinese --model small  --fp16 False
-
+```
+[推荐] whisper ASurvey.webm --task translate --language Chinese --model small --fp16 False
+[或者] whisper ASurvey.webm --initial_prompt "以下是普通话的句子。" --language Chinese --model small  --fp16 False
+```
 3. 使用ChatGPT将生成的srt文件进行翻译.
 
-4. 使用moviepy进行字幕重新加载回视频，生成新视频output.mp4
+4-1. 使用moviepy进行字幕重新加载回视频，生成新视频output.mp4
+ - https://github.com/zgimszhd61/movieAddSubtitle
 
-https://github.com/zgimszhd61/movieAddSubtitle
+4-2. 更好的选择是使用capcut来进行导入和重新生成视频.
 
-整个过程中，moviepy的运行时间比较久（可能是我电脑比较烂的原因），花了4个小时，需要有点耐心。
 
-请教各位大佬们这个过程什么地方可以加速，
-
-有没有更好的办法？
