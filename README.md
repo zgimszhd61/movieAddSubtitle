@@ -20,7 +20,3 @@ yt-dlp -f 'bestvideo[ext=webm]+bestaudio[ext=webm]/best[ext=webm]' -o "ASurvey.%
 
 4-2. 更好的选择是使用capcut来进行导入和重新生成视频.
 
-
-
-# 下载和翻译twitter space的方法
-1. 地址 spacesdown.com 可以下载Space ，得到mp3之后，继续使用whisper来进行翻译.
